@@ -1,0 +1,35 @@
+{
+  "timestamp": "2026-11-13T09:13:51.742029",
+  "sample_orders_evaluated": 50,
+  "core_system_metrics": {
+    "1_fulfillment_success_rate_pct": 69.8,
+    "2_on_time_delivery_rate_pct": 40.54,
+    "3_avg_delivery_time_days": 1.82,
+    "4_promise_accuracy_pct": 40.54,
+    "5_split_shipment_rate_pct": 0.1,
+    "6_warehouse_avg_utilization_pct": 50.14,
+    "7_inventory_allocation_accuracy_pct": 99.2,
+    "8_carrier_avg_reliability_score": 93.5,
+    "9_avg_shipping_cost_dollars": 14.5,
+    "10_fulfillment_exception_rate_pct": 1.1
+  },
+  "strategy_comparison": {
+    "baseline_nearest_warehouse": {
+      "avg_shipping_cost": 18.5,
+      "avg_transit_days": 4.0,
+      "operational_risk_score": 62.0
+    },
+    "optimized_multi_factor": {
+      "avg_shipping_cost": 27.42,
+      "avg_transit_days": 1.88,
+      "operational_risk_score": 92.0
+    },
+    "improvements": {
+      "cost_savings_dollars": -8.92,
+      "cost_savings_pct": -48.22,
+      "transit_reduction_days": 2.12,
+      "speed_improvement_pct": 53.0,
+      "risk_reduction_pct": 48.4
+    }
+  }
+}

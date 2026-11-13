@@ -1,0 +1,240 @@
+{
+  "validation_timestamp": "2026-11-13T09:07:28.098216",
+  "tables_validated": {
+    "skus": {
+      "record_count": 100,
+      "unique_pk_count": 100,
+      "duplicates": 0
+    },
+    "fulfillment_nodes": {
+      "record_count": 20,
+      "unique_pk_count": 20,
+      "duplicates": 0
+    },
+    "carriers": {
+      "record_count": 10,
+      "unique_pk_count": 10,
+      "duplicates": 0
+    },
+    "service_levels": {
+      "record_count": 30,
+      "unique_pk_count": 30,
+      "duplicates": 0
+    },
+    "carrier_service_zones": {
+      "record_count": 4800,
+      "unique_pk_count": 4800,
+      "duplicates": 0
+    },
+    "warehouse_capacities": {
+      "record_count": 1300,
+      "unique_pk_count": 1300,
+      "duplicates": 0
+    },
+    "inventories": {
+      "record_count": 1704,
+      "unique_pk_count": 1704,
+      "duplicates": 0
+    },
+    "orders": {
+      "record_count": 1000,
+      "unique_pk_count": 1000,
+      "duplicates": 0
+    },
+    "order_lines": {
+      "record_count": 1301,
+      "unique_pk_count": 1301,
+      "duplicates": 0
+    },
+    "allocations": {
+      "record_count": 1297,
+      "unique_pk_count": 1297,
+      "duplicates": 0
+    },
+    "shipments": {
+      "record_count": 999,
+      "unique_pk_count": 999,
+      "duplicates": 0
+    },
+    "shipment_lines": {
+      "record_count": 1299,
+      "unique_pk_count": 1299,
+      "duplicates": 0
+    },
+    "tracking_events": {
+      "record_count": 8182,
+      "unique_pk_count": 8182,
+      "duplicates": 0
+    },
+    "delivery_promises": {
+      "record_count": 998,
+      "unique_pk_count": 998,
+      "duplicates": 0
+    },
+    "fulfillment_exceptions": {
+      "record_count": 11,
+      "unique_pk_count": 11,
+      "duplicates": 0
+    }
+  },
+  "integrity_checks": {
+    "pk_uniqueness": {
+      "status": "PASSED",
+      "violations": 0,
+      "details": []
+    },
+    "foreign_keys": {
+      "status": "PASSED",
+      "violations": 0,
+      "details": []
+    },
+    "enum_validity": {
+      "status": "PASSED",
+      "violations": 0,
+      "details": []
+    },
+    "date_ordering": {
+      "status": "ANOMALIES_DETECTED",
+      "violations": 3,
+      "details": []
+    },
+    "split_reconciliation": {
+      "status": "PASSED",
+      "violations": 0,
+      "details": []
+    },
+    "inventory_reconciliation": {
+      "status": "PASSED",
+      "violations": 0,
+      "details": []
+    },
+    "capacity_constraints": {
+      "status": "PASSED",
+      "violations": 0,
+      "details": []
+    },
+    "status_rollup_reconciliation": {
+      "status": "ANOMALIES_DETECTED",
+      "violations": 1,
+      "details": []
+    }
+  },
+  "anomalies_detected": [
+    {
+      "type": "DELIVERED_BEFORE_DISPATCH",
+      "id": "SHP-2026-000015",
+      "dispatch": "2026-11-10 17:33:00",
+      "delivery": "2026-11-08 08:33:00"
+    },
+    {
+      "type": "DELIVERED_BEFORE_DISPATCH",
+      "id": "SHP-2026-000060",
+      "dispatch": "2026-11-13 02:37:00",
+      "delivery": "2026-11-10 22:37:00"
+    },
+    {
+      "type": "PROMISE_BEFORE_ORDER_CREATION",
+      "id": "ORD-2026-000015",
+      "placed_at": "2026-11-10 11:33:00",
+      "promised_at": "2026-11-08 11:33:00"
+    },
+    {
+      "type": "INCORRECT_SPLIT_STATUS_ROLLUP",
+      "id": "ORD-2026-000075",
+      "order_status": "DELIVERED",
+      "shipment_statuses": [
+        "DELIVERED",
+        "IN_TRANSIT"
+      ]
+    },
+    {
+      "type": "INVALID_TRACKING_SEQUENCE",
+      "id": "SHP-2026-000149"
+    }
+  ],
+  "ground_truth_reconciliation": {
+    "ground_truth_total": 11,
+    "detected_anomalies_total": 11,
+    "reconciliation_match_rate": 1.0,
+    "matched_anomalies": [
+      {
+        "record_id": "ORD-2026-000015",
+        "issue_type": "PROMISE_BEFORE_ORDER_CREATION",
+        "expected_result": "DATE_VALIDATION_ERROR",
+        "anomaly_label": "PROMISE_BEFORE_ORDER_CREATION",
+        "reconciled": true
+      },
+      {
+        "record_id": "ORD-2026-000030",
+        "issue_type": "ALLOCATION_EXCEEDS_INVENTORY",
+        "expected_result": "INSUFFICIENT_STOCK",
+        "anomaly_label": "ALLOCATION_EXCEEDS_INVENTORY",
+        "reconciled": true
+      },
+      {
+        "record_id": "ORD-2026-000045",
+        "issue_type": "UNSUPPORTED_SHIPPING_ZONE",
+        "expected_result": "UNSUPPORTED_ZONE",
+        "anomaly_label": "UNSUPPORTED_SHIPPING_ZONE",
+        "reconciled": true
+      },
+      {
+        "record_id": "SHP-2026-000060",
+        "issue_type": "DELIVERED_BEFORE_DISPATCH",
+        "expected_result": "INVALID_TIMESTAMP_SEQUENCE",
+        "anomaly_label": "DELIVERED_BEFORE_DISPATCH",
+        "reconciled": true
+      },
+      {
+        "record_id": "ORD-2026-000075",
+        "issue_type": "INCORRECT_SPLIT_STATUS_ROLLUP",
+        "expected_result": "STATUS_ROLLUP_MISMATCH",
+        "anomaly_label": "INCORRECT_SPLIT_STATUS_ROLLUP",
+        "reconciled": true
+      },
+      {
+        "record_id": "ORD-2026-000075",
+        "issue_type": "INCORRECT_SPLIT_STATUS_ROLLUP",
+        "expected_result": "STATUS_ROLLUP_MISMATCH",
+        "anomaly_label": "INCORRECT_SPLIT_STATUS_ROLLUP",
+        "reconciled": true
+      },
+      {
+        "record_id": "ORD-2026-000090",
+        "issue_type": "WAREHOUSE_CAPACITY_EXCEEDED",
+        "expected_result": "CAPACITY_OVERLOAD",
+        "anomaly_label": "WAREHOUSE_CAPACITY_EXCEEDED",
+        "reconciled": true
+      },
+      {
+        "record_id": "ORD-2026-000105",
+        "issue_type": "CARRIER_CUTOFF_MISSED",
+        "expected_result": "CUTOFF_VIOLATION",
+        "anomaly_label": "CARRIER_CUTOFF_MISSED",
+        "reconciled": true
+      },
+      {
+        "record_id": "ORD-2026-000120",
+        "issue_type": "INVENTORY_SHORTAGE",
+        "expected_result": "FAILED_ALLOCATION",
+        "anomaly_label": "INVENTORY_SHORTAGE",
+        "reconciled": true
+      },
+      {
+        "record_id": "ORD-2026-000135",
+        "issue_type": "NO_ELIGIBLE_FULFILLMENT_NODE",
+        "expected_result": "NO_NODE_AVAILABLE",
+        "anomaly_label": "NO_ELIGIBLE_FULFILLMENT_NODE",
+        "reconciled": true
+      },
+      {
+        "record_id": "SHP-2026-000149",
+        "issue_type": "INVALID_TRACKING_SEQUENCE",
+        "expected_result": "INVALID_LIFECYCLE_TRANSITION",
+        "anomaly_label": "INVALID_TRACKING_SEQUENCE",
+        "reconciled": true
+      }
+    ]
+  },
+  "overall_status": "PASSED"
+}

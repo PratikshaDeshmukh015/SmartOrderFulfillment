@@ -1,0 +1,11 @@
+carrier_id,carrier_name,contact_email,phone,reliability_score,is_active,created_at,updated_at
+CAR-2026-001,Apex Logistics,dispatch@apexlogistics.com,+1-800-5550001,0.98,True,2026-01-01 00:00:00,2026-01-01 00:00:00
+CAR-2026-002,SwiftAir Express,dispatch@swiftairexpress.com,+1-800-5550002,0.96,True,2026-01-01 00:00:00,2026-01-01 00:00:00
+CAR-2026-003,Continental Freight,dispatch@continentalfreight.com,+1-800-5550003,0.94,True,2026-01-01 00:00:00,2026-01-01 00:00:00
+CAR-2026-004,MetroDirect Carriers,dispatch@metrodirectcarriers.com,+1-800-5550004,0.92,True,2026-01-01 00:00:00,2026-01-01 00:00:00
+CAR-2026-005,Pioneer Parcel,dispatch@pioneerparcel.com,+1-800-5550005,0.95,True,2026-01-01 00:00:00,2026-01-01 00:00:00
+CAR-2026-006,Titan Shipping,dispatch@titanshipping.com,+1-800-5550006,0.91,True,2026-01-01 00:00:00,2026-01-01 00:00:00
+CAR-2026-007,Vanguard Courier,dispatch@vanguardcourier.com,+1-800-5550007,0.97,True,2026-01-01 00:00:00,2026-01-01 00:00:00
+CAR-2026-008,BlueStreak Delivery,dispatch@bluestreakdelivery.com,+1-800-5550008,0.89,True,2026-01-01 00:00:00,2026-01-01 00:00:00
+CAR-2026-009,OmniPostal Services,dispatch@omnipostalservices.com,+1-800-5550009,0.93,True,2026-01-01 00:00:00,2026-01-01 00:00:00
+CAR-2026-010,Horizon Logistics,dispatch@horizonlogistics.com,+1-800-5550010,0.9,True,2026-01-01 00:00:00,2026-01-01 00:00:00
